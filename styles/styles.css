@@ -1,0 +1,60 @@
+*{
+    margin: 5px;
+    padding: 0;
+}
+
+body{
+    text-align: center;
+    background-color: rgb(58, 42, 151);
+}
+.menu{
+   top: 40px;
+    display: flex;
+    justify-content:space-around;
+    background-color: rgb(55, 54, 153);
+}
+.tecno{
+    display: flex;
+    justify-content: center;
+
+}
+
+.tec-1, .tec-2, .tec-3{
+   background-color: rgb(71, 123, 184);
+   position: relative;
+   margin: 2%;
+   
+}
+
+.tec-1 p, .tec-2 p, .tec-3 p{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+}
+
+
+.tecno div{
+    height: 320px;
+    width: 270px
+}
+
+.seccion-3 div{
+    display: flex;
+    justify-content: center;
+}
+
+.menu a{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+}
+
+
+
+

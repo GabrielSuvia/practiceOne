@@ -1,7 +1,4 @@
 
-console.log("Archivo guardado");
-
-
 class Activity{
     constructor(id, titulo, descripcion, imagen){
         
@@ -10,7 +7,7 @@ class Activity{
          this.descripcion= descripcion;
          this.imagen= imagen;
     }
-}
+};
 
 
 
@@ -28,13 +25,15 @@ class Repositorio{
     }
     deleteAct(datoId){
         const dato = this.repo.filter(e => e.id === datoId)
-        return dato;
+        this.repo = dato;
+    
     }
 
 };
 
 const objeto = new Repositorio();
 
+//Crea los elementos para las propiedades del objeto para crear las card
 
 const actividad = function (actClas){
       const  {titulo, descripcion, imagen } = actClas  ;
@@ -43,6 +42,7 @@ const actividad = function (actClas){
       const docImg = document.createElement("img");
       const docDesc = document.createElement("p");
       
+
       docTitulo.innerHTML= titulo;
       docImg.src= imagen;//en src va la ruta
 
@@ -56,12 +56,10 @@ const actividad = function (actClas){
       dive.appendChild(docImg);
       dive.appendChild(docDesc);
       
-      
       return dive;
 };
 
-
-//objeto.getAct(); como parametro
+//Adjuntamos las actividades a elementos creados dentro del contenedor recibiendo el arreglo de actividades
 
 const conver = function (actividades){
     const docCont = document.querySelector(".container");
@@ -72,7 +70,6 @@ const conver = function (actividades){
     arrAct= actividades.map((e)=>{
         arrAct.push(actividad(e))
     });
-
     
     arrAct.forEach((e)=>{
         docCont.innerHTML = docCont.innerHTML+ e;
@@ -80,27 +77,35 @@ const conver = function (actividades){
  
 };
 
+//capturar los valores de los input y creacion de la actividad
 
 const handler = function (){
 
-    const titulo = document.getElementById("titulos").value;
-    const descripcion = document.getElementById("descripciones").value;
-    const imagen = document.getElementById("imagen").value;
+    const titulo = document.getElementById("titulos");
+    const descripcion = document.getElementById("descripciones");
+    const imagen = document.getElementById("imagen");
 
-   // if(titulo === "" || descripcion ==="" || imagen ==""){
 
-     //   console.log("Es necesario rellenar los 3 espacios")
-    //}
-    objeto.agregarAct(titulo, descripcion, imagen)
+   if(titulo.value === "" || descripcion.value ==="" || imagen.value ==""){
 
-    conver(objeto.getAct())
-}
-;
+        alert("Es necesario rellenar los 3 espacios")
+    }else{
+        objeto.agregarAct(titulo.value, descripcion.value, imagen.value)
+
+        conver(objeto.getAct())//todas las actividades
+        //vaciar los input
+        titulo.value.target = "";
+        descripcion.value = "";
+        imagen.value = "";
+    }
+};
+ 
 
 const button = document.getElementById("btn-1");
 
    button.addEventListener("click",function(e){
-    e.preventDefault();
+   e.preventDefault();
     handler();
-   })
-
+   
+   });
+   

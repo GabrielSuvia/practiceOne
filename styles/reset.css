@@ -1,0 +1,49 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+ul,ol{
+    list-style: none;
+}
+body,h1,h2,h3,p,blockquote,pre,ol,ul,figure{
+margin: 0;
+padding: 0;
+}
+html{
+
+    font-size: 100%;
+    line-height: 1.6;
+}
+a{
+    text-decoration: none;
+}
+b,strong{
+    font-weight: bold;
+}
+
+a:hover{
+    text-decoration: none;
+}
+input,textarea,select,button{
+    font:inherit
+}
+input,textarea{
+    border: none;
+    outline: none;
+}
+ ul,ol{
+
+    list-style: none;
+    padding: 0;
+ }
+ table{
+    border-collapse: collapse;
+    border-spacing: 0;
+ }
+ img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+ }

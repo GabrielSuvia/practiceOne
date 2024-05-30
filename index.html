@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
 
@@ -33,27 +33,27 @@
 <section class="seccion-2">
     <h1>Mis tecnologias favorita</h1><br>
 
-        <div class="tecno">
+        <ul class="tecno">
 
-            <div class="tec-1">
+            <li class="tec-1">
                 <h2>Tecnologia html</h2>
                 <img src="assets/img/images-html.png" alt="NH">
                 <p>delectus error nulla, repellendus laborum quia quod dignissimos sunt harum.</p>
-            </div>
+            </li>
 
-            <div class="tec-2">
+            <li class="tec-2">
                 <h2>Tecnologia css</h2>
                 <img src="assets/img/images_css.jpg" alt="NH">
                 <p>delectus error nulla, repellendus laborum quia quod dignissimos sunt harum.</p>
-            </div>
+            </li>
 
-            <div class="tec-3">
+            <li class="tec-3">
                 <h2>Tecnologia JS</h2>
                 <img src="assets/img/images_js.jpg" alt="NH">
                 <p>delectus error nulla, repellendus laborum quia quod dignissimos sunt harum.</p>
-            </div>
+            </li>
                
-        </div>
+        </ul>
 </section>
 
 <br>
@@ -62,20 +62,18 @@
 <section class="seccion-3">
     
     
-        <form class="formu">
+        <form action="" class="formu">
     
-        <label for="titulos">Titulo</label>
-        <input type="text" id="titulos" name="titulos"> 
-    
-        <label for="descripciones">Descripcion</label>
-        <textarea name="descripcion" rows="4" cols="50" id="descripciones" name="descripciones"></textarea>
-
-        <label for="imagen">Imagenascsd</label>
-        <input type="url" id="imagen" name="imagen"> 
-
-        <button type="submit" id="btn-1">enviar</button>
+        
+        <input type="text" id="titulo" name="titulos" class="titulo" placeholder="Escribir titulo">
+        <br>
+        <textarea rows="4" cols="50" id="descripciones" name="descripcion" class="descripciones" placeholder="Descripcion de la actividad"></textarea>
+        <br>
+        <input type="url" id="imagen" name="imagen" class="imagen" placeholder="Link de imagen"> 
+        <br>
+        <button type="submit" id="btn-1">Guardar Actividad</button>
       </form>
-     
+     <button onclick=""></button>
 </section>
 
 <div  id="container" class="container">

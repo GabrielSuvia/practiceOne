@@ -14,36 +14,35 @@ class Activity{
 class Repositorio{
     constructor(){
         this.act = [];
+        this.id=0;
     }
     getAct(){
     return this.act;
     }
     agregarAct(titulo, descripcion, imagen){
-        const id = this.act.length +1;
-        const deporte = new Activity(id, titulo, descripcion, imagen)
+        const deporte = new Activity(this.id, titulo, descripcion, imagen)
+        this.id+=1;
         this.act.push(deporte);
-    }
-    deleteAct(datoId){
-        const dato = this.repo.filter(e => e.id === datoId)
-        this.repo = dato;
-    
     }
 
 };
+
 
 const objeto = new Repositorio();
 
 //Crea los elementos para las propiedades del objeto para crear las card
 
-const actividad = function (actClas){
+const actividad = function (actClas, indice){
       const  {titulo, descripcion, imagen } = actClas  ;
-
+     
+    
       const docTitulo = document.createElement("h3");
       const docImg = document.createElement("img");
       const docDesc = document.createElement("p");
-      
 
+      
       docTitulo.innerHTML= titulo;
+
       docImg.src= imagen;//en src va la ruta
 
       docDesc.innerHTML= descripcion;
@@ -55,7 +54,7 @@ const actividad = function (actClas){
       dive.appendChild(docTitulo);
       dive.appendChild(docImg);
       dive.appendChild(docDesc);
-      
+
       return dive;
 };
 
@@ -67,39 +66,43 @@ const conver = function (actividades){
     docCont.innerHTML = "";
     const arrAct=[];
 
-    arrAct= actividades.map((e)=>{
-        arrAct.push(actividad(e))
+    arrAct= actividades.map((e,i)=>{
+        arrAct.push(actividad(e,i))
     });
-    
+
+
     arrAct.forEach((e)=>{
         docCont.innerHTML = docCont.innerHTML+ e;
     });
  
+
 };
 
 //capturar los valores de los input y creacion de la actividad
 
 const handler = function (){
 
-    const titulo = document.getElementById("titulos");
+    const titulo = document.getElementById("titulo");
     const descripcion = document.getElementById("descripciones");
     const imagen = document.getElementById("imagen");
-
+    
 
    if(titulo.value === "" || descripcion.value ==="" || imagen.value ==""){
 
         alert("Es necesario rellenar los 3 espacios")
     }else{
         objeto.agregarAct(titulo.value, descripcion.value, imagen.value)
+        
 
-        conver(objeto.getAct())//todas las actividades
-        //vaciar los input
-        titulo.value.target = "";
-        descripcion.value = "";
+ //vaciar los input
+        titulo.value = "";
+        descripcion.value = ""; 
         imagen.value = "";
+
+        conver(objeto.getAct())//todas las actividades, copia en el innerhtml(termina bloque)
     }
 };
- 
+
 
 const button = document.getElementById("btn-1");
 
@@ -108,4 +111,5 @@ const button = document.getElementById("btn-1");
     handler();
    
    });
-   
+
+
